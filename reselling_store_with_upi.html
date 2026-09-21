@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Umar Store | Reselling Store With UPI</title>
+    <meta
+      name="description"
+      content="Umar Store offers trusted reselling products with secure UPI payment, fast delivery, and great deals."
+    />
+    <style>
+      :root {
+        --primary: #ff7b00;
+        --primary-dark: #ea6400;
+        --secondary: #1e293b;
+        --accent: #0f172a;
+        --bg: #f8fafc;
+        --card: #ffffff;
+        --muted: #64748b;
+        --success: #16a34a;
+        --warning: #f59e0b;
+        --shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(180deg, #fffaf3 0%, #f8fafc 20%, #eef7ff 100%);
+        color: var(--secondary);
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      button {
+        font: inherit;
+        cursor: pointer;
+      }
+
+      .container {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        background: var(--accent);
+        color: #fff;
+        font-size: 0.86rem;
+        padding: 10px 0;
+      }
+
+      .topbar-inner {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .topbar span {
+        opacity: 0.9;
+      }
+
+      .topbar .offers {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .topbar .offers strong {
+        color: #ffd7a6;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 99;
+        backdrop-filter: blur(8px);
+        background: rgba(255, 255, 255, 0.9);
+        border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 76px;
+        gap: 20px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+      }
+
+      .brand-mark {
+        width: 42px;
+        height: 42px;
+        background: linear-gradient(135deg, var(--primary), #ffb347);
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        color: white;
+        font-weight: 900;
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 26px;
+        color: var(--muted);
+        flex-wrap: wrap;
+      }
+
+      .nav-links a {
+        font-weight: 600;
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .pill,
+      .primary-btn,
+      .secondary-btn,
+      .action-btn {
+        border: none;
+        border-radius: 12px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .primary-btn,
+      .secondary-btn,
+      .action-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 14px 22px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .primary-btn {
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        color: white;
+        box-shadow: 0 14px 25px rgba(255, 123, 0, 0.28);
+      }
+
+      .secondary-btn {
+        background: white;
+        color: var(--secondary);
+        border: 1px solid rgba(148, 163, 184, 0.35);
+      }
+
+      .action-btn {
+        padding: 12px 16px;
+        background: #f8fafc;
+        color: var(--secondary);
+        border: 1px solid rgba(148, 163, 184, 0.2);
+      }
+
+      .primary-btn:hover,
+      .secondary-btn:hover,
+      .action-btn:hover,
+      .pill:hover {
+        transform: translateY(-2px);
+      }
+
+      .hero {
+        padding: 52px 0 48px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        align-items: center;
+        gap: 36px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 123, 0, 0.1);
+        padding: 8px 14px;
+        border-radius: 999px;
+        color: var(--primary-dark);
+        font-weight: 700;
+        font-size: 0.8rem;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.5rem, 5vw, 4.4rem);
+        line-height: 1.05;
+        margin: 18px 0 16px;
+        color: var(--accent);
+      }
+
+      .hero h1 .highlight {
+        color: var(--primary);
+      }
+
+      .hero p {
+        font-size: 1.08rem;
+        line-height: 1.7;
+        color: var(--muted);
+        max-width: 620px;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 16px;
+        margin-top: 28px;
+        flex-wrap: wrap;
+      }
+
+      .hero-stats {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 26px;
+      }
+
+      .stat {
+        min-width: 130px;
+        padding: 16px 18px;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.75);
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 1.5rem;
+        color: var(--accent);
+      }
+
+      .stat span {
+        color: var(--muted);
+        font-size: 0.86rem;
+      }
+
+      .showcase {
+        position: relative;
+        padding: 24px;
+      }
+
+      .showcase-card {
+        position: relative;
+        background: linear-gradient(150deg, #fffaf3 0%, #e6f0ff 100%);
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: 28px;
+        box-shadow: var(--shadow);
+        padding: 28px;
+      }
+
+      .product-spotlight {
+        background: linear-gradient(135deg, #ffffff, #f8fafc);
+        border-radius: 26px;
+        padding: 22px;
+        border: 1px solid rgba(148, 163, 184, 0.15);
+      }
+
+      .product-spotlight .image-box {
+        background: linear-gradient(145deg, #f7d8b8, #d2dfff);
+        border-radius: 22px;
+        height: 280px;
+        display: grid;
+        place-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .phone-art {
+        width: 190px;
+        height: 250px;
+        background: linear-gradient(180deg, #1e293b, #0f172a);
+        border-radius: 28px;
+        position: relative;
+        box-shadow: 0 25px 34px rgba(15, 23, 42, 0.16);
+      }
+
+      .phone-art::before {
+        content: "";
+        position: absolute;
+        inset: 14px 16px 45px 16px;
+        background: linear-gradient(135deg, #f9d6a4, #6ee7b7);
+        border-radius: 18px;
+      }
+
+      .phone-art::after {
+        content: "";
+        position: absolute;
+        width: 70px;
+        height: 8px;
+        background: #0f172a;
+        border-radius: 999px;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 14px;
+      }
+
+      .badge {
+        position: absolute;
+        right: 18px;
+        top: 18px;
+        background: #111827;
+        color: white;
+        border-radius: 999px;
+        padding: 9px 12px;
+        font-size: 0.8rem;
+        font-weight: 700;
+      }
+
+      .spotlight-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        padding-top: 18px;
+      }
+
+      .spotlight-footer .title {
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: var(--accent);
+      }
+
+      .spotlight-footer .price {
+        color: var(--primary-dark);
+        font-size: 1.5rem;
+        font-weight: 800;
+      }
+
+      .section {
+        padding: 34px 0 18px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 24px;
+        flex-wrap: wrap;
+      }
+
+      .section-head h2 {
+        margin: 0;
+        color: var(--accent);
+        font-size: clamp(1.9rem, 3vw, 2.8rem);
+      }
+
+      .section-head p {
+        color: var(--muted);
+        margin: 0;
+      }
+
+      .filter-row {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-bottom: 22px;
+      }
+
+      .pill {
+        background: rgba(148, 163, 184, 0.08);
+        color: var(--secondary);
+        border: 1px solid rgba(148, 163, 184, 0.15);
+        padding: 10px 16px;
+        font-weight: 700;
+      }
+
+      .pill.active {
+        background: var(--secondary);
+        color: white;
+        border-color: var(--secondary);
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .product-card {
+        background: var(--card);
+        border: 1px solid rgba(148, 163, 184, 0.15);
+        border-radius: 22px;
+        overflow: hidden;
+        box-shadow: 0 15px 40px rgba(15, 23, 42, 0.05);
+      }
+
+      .product-card.hidden {
+        display: none;
+      }
+
+      .product-image {
+        height: 220px;
+        background: linear-gradient(135deg, #fef3c7, #dbeafe, #e7e5e4);
+        display: grid;
+        place-items: center;
+        position: relative;
+      }
+
+      .device {
+        width: 130px;
+        height: 150px;
+        background: linear-gradient(180deg, #1f2937, #111827);
+        border-radius: 24px;
+        position: relative;
+        box-shadow: 0 16px 26px rgba(15, 23, 42, 0.15);
+      }
+
+      .device::before {
+        content: "";
+        position: absolute;
+        inset: 14px;
+        border-radius: 18px;
+        background: linear-gradient(135deg, #f6d365, #fda085);
+      }
+
+      .headphones {
+        width: 125px;
+        height: 125px;
+        border: 14px solid #111827;
+        border-bottom: 0;
+        border-radius: 60px 60px 0 0;
+        position: relative;
+      }
+
+      .headphones::before,
+      .headphones::after {
+        content: "";
+        position: absolute;
+        width: 18px;
+        height: 70px;
+        border: 10px solid #111827;
+        border-radius: 30px;
+        top: 88px;
+      }
+
+      .headphones::before {
+        left: -26px;
+      }
+
+      .headphones::after {
+        right: -26px;
+      }
+
+      .watch {
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #f5f3ff, #dbeafe);
+        border: 10px solid #111827;
+        position: relative;
+      }
+
+      .watch::before {
+        content: "";
+        position: absolute;
+        width: 50%;
+        height: 4px;
+        background: var(--primary);
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(50deg);
+        border-radius: 4px;
+      }
+
+      .bag {
+        width: 128px;
+        height: 132px;
+        background: linear-gradient(180deg, #f8fafc, #e0f2fe);
+        position: relative;
+        border-radius: 24px 24px 18px 18px;
+        border: 6px solid #1f2937;
+      }
+
+      .bag::before {
+        content: "";
+        position: absolute;
+        width: 72%;
+        height: 28px;
+        border: 6px solid #1f2937;
+        border-bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        top: -26px;
+        border-radius: 24px 24px 0 0;
+      }
+
+      .product-body {
+        padding: 18px 18px 20px;
+      }
+
+      .tag {
+        display: inline-block;
+        padding: 7px 10px;
+        border-radius: 999px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        background: rgba(22, 163, 74, 0.1);
+        color: var(--success);
+      }
+
+      .product-name {
+        margin: 12px 0 8px;
+        color: var(--accent);
+        font-size: 1.18rem;
+        font-weight: 800;
+      }
+
+      .rating {
+        color: #f59e0b;
+        letter-spacing: 0.1em;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+      }
+
+      .price-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 14px;
+        margin-top: 18px;
+      }
+
+      .price {
+        font-size: 1.55rem;
+        color: var(--accent);
+        font-weight: 800;
+      }
+
+      .old-price {
+        color: var(--muted);
+        text-decoration: line-through;
+        font-size: 0.93rem;
+      }
+
+      .buy-btn {
+        border: none;
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        color: white;
+        padding: 10px 14px;
+        border-radius: 12px;
+        font-weight: 700;
+      }
+
+      .feature-strip {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 18px;
+        margin: 34px 0 22px;
+      }
+
+      .feature-box {
+        padding: 22px 18px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.78);
+        border: 1px solid rgba(148, 163, 184, 0.15);
+      }
+
+      .feature-box .icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+        background: rgba(255, 123, 0, 0.12);
+        color: var(--primary-dark);
+        font-size: 1.5rem;
+        margin-bottom: 14px;
+      }
+
+      .feature-box h3 {
+        margin: 0 0 8px;
+        font-size: 1.08rem;
+        color: var(--accent);
+      }
+
+      .feature-box p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .upsell {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 26px;
+        margin-top: 28px;
+      }
+
+      .promo-card,
+      .upi-card,
+      .review-card,
+      .details-box {
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(148, 163, 184, 0.15);
+        border-radius: 24px;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.04);
+      }
+
+      .promo-card {
+        padding: 26px;
+        background: linear-gradient(135deg, #fff3e8, #eef7ff);
+      }
+
+      .promo-card h3 {
+        color: var(--accent);
+        font-size: clamp(1.7rem, 3vw, 2.5rem);
+        margin: 10px 0 14px;
+      }
+
+      .promo-card p {
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .promo-points {
+        list-style: none;
+        padding: 0;
+        margin: 20px 0 0;
+        display: grid;
+        gap: 12px;
+      }
+
+      .promo-points li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--secondary);
+        font-weight: 600;
+      }
+
+      .check {
+        width: 24px;
+        height: 24px;
+        background: rgba(22, 163, 74, 0.12);
+        color: var(--success);
+        border-radius: 50%;
+        display: inline-grid;
+        place-items: center;
+        font-size: 0.9rem;
+        font-weight: 900;
+      }
+
+      .upi-card {
+        padding: 26px;
+      }
+
+      .upi-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .upi-header h3 {
+        margin: 0;
+        color: var(--accent);
+        font-size: 1.7rem;
+      }
+
+      .upi-badge {
+        background: rgba(34, 197, 94, 0.1);
+        color: var(--success);
+        border-radius: 999px;
+        padding: 7px 10px;
+        font-size: 0.7rem;
+        font-weight: 800;
+      }
+
+      .qr-wrap {
+        margin: 22px auto 18px;
+        display: grid;
+        place-items: center;
+      }
+
+      .qr-code {
+        width: 180px;
+        height: 180px;
+        background: #fff;
+        border: 12px solid #111827;
+        border-radius: 18px;
+        display: grid;
+        grid-template-columns: repeat(9, 1fr);
+        gap: 4px;
+        padding: 8px;
+      }
+
+      .qr-code span {
+        display: block;
+        background: transparent;
+        border-radius: 4px;
+      }
+
+      .qr-code span:nth-child(odd) {
+        background: #111827;
+      }
+
+      .upi-id {
+        text-align: center;
+        margin: 10px 0 18px;
+      }
+
+      .upi-id strong {
+        display: block;
+        color: var(--accent);
+        font-size: 1.45rem;
+        letter-spacing: 0.07em;
+      }
+
+      .upi-id span {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .upi-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .mini-btn {
+        flex: 1;
+        min-width: 150px;
+      }
+
+      .reviews {
+        margin-top: 18px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .review-card {
+        padding: 22px;
+      }
+
+      .review-card .stars {
+        color: #f59e0b;
+        letter-spacing: 0.12em;
+        margin-bottom: 12px;
+      }
+
+      .review-card p {
+        color: var(--muted);
+        line-height: 1.7;
+        margin: 0 0 18px;
+      }
+
+      .reviewer {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .avatar {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #fee2e2, #dbeafe);
+        display: grid;
+        place-items: center;
+        font-weight: 800;
+        color: var(--secondary);
+      }
+
+      .reviewer strong {
+        display: block;
+        color: var(--accent);
+      }
+
+      .reviewer span {
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+
+      .details-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+        margin-top: 26px;
+      }
+
+      .details-box {
+        padding: 24px 20px;
+      }
+
+      .details-box h4 {
+        margin: 0 0 10px;
+        color: var(--accent);
+        font-size: 1.15rem;
+      }
+
+      .detail-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 10px;
+        color: var(--muted);
+      }
+
+      .detail-list li::before {
+        content: "•";
+        color: var(--primary);
+        font-weight: 700;
+        margin-right: 8px;
+      }
+
+      footer {
+        margin-top: 34px;
+        background: var(--accent);
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        min-height: 88px;
+        flex-wrap: wrap;
+      }
+
+      .footer-brand {
+        font-weight: 800;
+        font-size: 1.15rem;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        color: rgba(255, 255, 255, 0.75);
+      }
+
+      @media (max-width: 980px) {
+        .hero-grid,
+        .upsell,
+        .product-grid,
+        .details-grid,
+        .reviews,
+        .feature-strip {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .upsell {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .nav {
+          padding: 14px 0;
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .nav-links {
+          gap: 12px 18px;
+        }
+
+        .nav-actions {
+          width: 100%;
+          justify-content: space-between;
+        }
+
+        .product-grid,
+        .reviews,
+        .feature-strip,
+        .details-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .section-head {
+          align-items: flex-start;
+        }
+
+        .hero {
+          padding-top: 32px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <span>Free delivery on orders above ₹999</span>
+        <div class="offers">
+          <strong>UPI Offer:</strong>
+          <span>10% instant discount on prepaid orders</span>
+        </div>
+      </div>
+    </div>
+
+    <header>
+      <div class="container nav">
+        <div class="brand" aria-label="Umar Store brand">
+          <div class="brand-mark">U</div>
+          <span>Umar Store</span>
+        </div>
+
+        <nav class="nav-links" aria-label="Main menu">
+          <a href="#products">Products</a>
+          <a href="#offers">Offers</a>
+          <a href="#payment">UPI</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="action-btn" type="button">Cart (0)</button>
+          <button class="primary-btn" type="button">Order Now</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="eyebrow">Trusted Reselling Deals • 100% Genuine</div>
+            <h1>
+              Smart deals for your<br />
+              everyday <span class="highlight">tech lifestyle</span>
+            </h1>
+            <p>
+              Discover handpicked gadgets, lifestyle essentials, and trending accessories at
+              affordable prices. Fast shipping, easy UPI payments, and quality assurance with
+              every order.
+            </p>
+
+            <div class="hero-actions">
+              <button class="primary-btn" type="button">Shop Best Sellers</button>
+              <button class="secondary-btn" type="button">View UPI Payment</button>
+            </div>
+
+            <div class="hero-stats" aria-label="Store highlights">
+              <div class="stat">
+                <strong>10k+</strong>
+                <span>Happy Buyers</span>
+              </div>
+              <div class="stat">
+                <strong>4.8/5</strong>
+                <span>Customer Rating</span>
+              </div>
+              <div class="stat">
+                <strong>24h</strong>
+                <span>Quick Dispatch</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="showcase">
+            <div class="showcase-card">
+              <div class="product-spotlight">
+                <div class="image-box">
+                  <div class="badge">Hot Deal</div>
+                  <div class="phone-art" aria-label="Featured product image"></div>
+                </div>
+
+                <div class="spotlight-footer">
+                  <div>
+                    <div class="title">Galaxy Pro Max</div>
+                  </div>
+                  <div class="price">₹14,999</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="products" class="section">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <h2>Top Picks & Trending</h2>
+            </div>
+            <p>Curated best-sellers for daily use</p>
+          </div>
+
+          <div class="filter-row" aria-label="Product categories">
+            <button class="pill active" type="button" data-filter="all">All</button>
+            <button class="pill" type="button" data-filter="tech">Tech</button>
+            <button class="pill" type="button" data-filter="audio">Audio</button>
+            <button class="pill" type="button" data-filter="fashion">Lifestyle</button>
+            <button class="pill" type="button" data-filter="accessories">Accessories</button>
+          </div>
+
+          <div class="product-grid">
+            <article class="product-card" data-category="tech">
+              <div class="product-image">
+                <div class="device"></div>
+              </div>
+              <div class="product-body">
+                <span class="tag">Best Seller</span>
+                <div class="product-name">Galaxy Pro Max</div>
+                <div class="rating">★★★★★</div>
+                <div class="price-row">
+                  <div>
+                    <div class="price">₹14,999</div>
+                    <div class="old-price">₹18,499</div>
+                  </div>
+                  <button class="buy-btn" type="button">Buy</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-category="audio">
+              <div class="product-image">
+                <div class="headphones"></div>
+              </div>
+              <div class="product-body">
+                <span class="tag">New</span>
+                <div class="product-name">SoundCore X3</div>
+                <div class="rating">★★★★★</div>
+                <div class="price-row">
+                  <div>
+                    <div class="price">₹2,499</div>
+                    <div class="old-price">₹3,499</div>
+                  </div>
+                  <button class="buy-btn" type="button">Buy</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-category="fashion">
+              <div class="product-image">
+                <div class="bag"></div>
+              </div>
+              <div class="product-body">
+                <span class="tag">Trending</span>
+                <div class="product-name">Urban Travel Pack</div>
+                <div class="rating">★★★★☆</div>
+                <div class="price-row">
+                  <div>
+                    <div class="price">₹1,799</div>
+                    <div class="old-price">₹2,399</div>
+                  </div>
+                  <button class="buy-btn" type="button">Buy</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-category="accessories">
+              <div class="product-image">
+                <div class="watch"></div>
+              </div>
+              <div class="product-body">
+                <span class="tag">Popular</span>
+                <div class="product-name">Elite Smart Watch</div>
+                <div class="rating">★★★★★</div>
+                <div class="price-row">
+                  <div>
+                    <div class="price">₹3,699</div>
+                    <div class="old-price">₹5,099</div>
+                  </div>
+                  <button class="buy-btn" type="button">Buy</button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="feature-strip" id="offers">
+            <div class="feature-box">
+              <div class="icon">⚡</div>
+              <h3>Fast Delivery</h3>
+              <p>Dispatched within 24 hours with secure packaging.</p>
+            </div>
+            <div class="feature-box">
+              <div class="icon">🔒</div>
+              <h3>Secure UPI</h3>
+              <p>Instant, secure, and trusted payment via UPI ID.</p>
+            </div>
+            <div class="feature-box">
+              <div class="icon">✅</div>
+              <h3>Quality Tested</h3>
+              <p>Each product is checked before shipping for quality.</p>
+            </div>
+            <div class="feature-box">
+              <div class="icon">💬</div>
+              <h3>Support</h3>
+              <p>Quick support through WhatsApp and direct calls.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="upsell">
+            <div class="promo-card">
+              <div class="eyebrow">Why customers trust us</div>
+              <h3>Affordable quality, trusted service, zero stress.</h3>
+              <p>
+                We focus on giving you high-value products, transparent pricing, and helpful
+                customer support so your buying experience stays smooth from cart to delivery.
+              </p>
+
+              <ul class="promo-points">
+                <li><span class="check">✓</span> Verified products with genuine quality checks</li>
+                <li><span class="check">✓</span> Instant UPI checkout and secure payments</li>
+                <li><span class="check">✓</span> Friendly support for bulk or repeat orders</li>
+              </ul>
+            </div>
+
+            <div id="payment" class="upi-card">
+              <div class="upi-header">
+                <h3>Pay via UPI</h3>
+                <span class="upi-badge">Instant Pay</span>
+              </div>
+
+              <div class="qr-wrap" aria-label="UPI QR code illustration">
+                <div class="qr-code" aria-hidden="true">
+                  <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                  <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                  <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                  <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                  <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                  <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                  <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                  <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                  <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+              </div>
+
+              <div class="upi-id">
+                <strong>umarstore@upi</strong>
+                <span>Scan or copy this UPI ID to complete your payment</span>
+              </div>
+
+              <div class="upi-actions">
+                <button class="primary-btn mini-btn" type="button">Copy UPI ID</button>
+                <button class="secondary-btn mini-btn" type="button">Pay on PhonePe</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="reviews" class="section">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <h2>What Customers Say</h2>
+            </div>
+            <p>Quality, speed, and trust in every order</p>
+          </div>
+
+          <div class="reviews">
+            <article class="review-card">
+              <div class="stars">★★★★★</div>
+              <p>
+                “Great quality product and fast delivery. The payment process via UPI was super
+                simple and quick.”
+              </p>
+              <div class="reviewer">
+                <div class="avatar">A</div>
+                <div>
+                  <strong>Aisha</strong>
+                  <span>Verified Buyer</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="review-card">
+              <div class="stars">★★★★★</div>
+              <p>
+                “Affordable pricing, excellent packaging, and customer service replied in minutes.
+                Definitely ordering again.”
+              </p>
+              <div class="reviewer">
+                <div class="avatar">R</div>
+                <div>
+                  <strong>Rahul</strong>
+                  <span>Repeat Buyer</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="review-card">
+              <div class="stars">★★★★★</div>
+              <p>
+                “I got my gadget exactly as described. The deal value was excellent, and the return
+                support was helpful.”
+              </p>
+              <div class="reviewer">
+                <div class="avatar">S</div>
+                <div>
+                  <strong>Sana</strong>
+                  <span>Happy Customer</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="section">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <h2>Quick Info</h2>
+            </div>
+            <p>Everything you need before ordering</p>
+          </div>
+
+          <div class="details-grid">
+            <div class="details-box">
+              <h4>Delivery</h4>
+              <ul class="detail-list">
+                <li>Orders dispatched within 24 hours</li>
+                <li>Delivery across major cities</li>
+                <li>Cash on delivery available for eligible orders</li>
+              </ul>
+            </div>
+
+            <div class="details-box">
+              <h4>Payments</h4>
+              <ul class="detail-list">
+                <li>UPI, cards, and wallet support</li>
+                <li>Instant confirmation after payment</li>
+                <li>Secure and encrypted checkout</li>
+              </ul>
+            </div>
+
+            <div class="details-box">
+              <h4>Support</h4>
+              <ul class="detail-list">
+                <li>WhatsApp support available</li>
+                <li>Quick assistance for order issues</li>
+                <li>Easy exchange or replacement policy</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <div class="footer-brand">Umar Store</div>
+        <div class="footer-links">
+          <span>Reselling Deals</span>
+          <span>Payments via UPI</span>
+          <span>Fast Delivery</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.querySelectorAll('.pill').forEach((button) => {
+        button.addEventListener('click', () => {
+          document.querySelectorAll('.pill').forEach((btn) => btn.classList.remove('active'));
+          button.classList.add('active');
+
+          const filter = button.dataset.filter;
+          const cards = document.querySelectorAll('.product-card');
+
+          cards.forEach((card) => {
+            if (filter === 'all' || card.dataset.category === filter) {
+              card.classList.remove('hidden');
+            } else {
+              card.classList.add('hidden');
+            }
+          });
+        });
+      });
+
+      document.querySelectorAll('.buy-btn, .primary-btn, .secondary-btn').forEach((button) => {
+        button.addEventListener('click', () => {
+          const target = button.textContent.trim();
+          if (target === 'Copy UPI ID') {
+            const text = 'umarstore@upi';
+            navigator.clipboard.writeText(text).then(() => {
+              button.textContent = 'UPI Copied';
+              setTimeout(() => (button.textContent = 'Copy UPI ID'), 1200);
+            });
+          } else if (target === 'Pay on PhonePe') {
+            window.location.href = 'upi://pay?pa=umarstore@upi&pn=Umar%20Store&am=0&cu=INR';
+          } else {
+            window.scrollTo({ top: document.getElementById('payment').offsetTop - 80, behavior: 'smooth' });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
